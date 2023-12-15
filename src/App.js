@@ -3,7 +3,6 @@ import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
-import React from "react";
 
 const defaultTodos = [
   { text: "Cortar cebollas", completed: true },
@@ -11,11 +10,12 @@ const defaultTodos = [
   { text: "Patrullar en la noche", completed: false },
   { text: "ser miserable", completed: true },
 ];
+const completedTodos = defaultTodos.filter(todo =>todo.completed === true)
 
 function App() {
   return (
-    <React.Fragment>
-      <TodoCounter completed={defaultTodos.length} total={25} />
+    <>
+      <TodoCounter completed={completedTodos.length} total={defaultTodos.length} />
       <TodoSearch />
       <TodoList>
         {defaultTodos.map((todo) => (
@@ -28,7 +28,7 @@ function App() {
       </TodoList>
 
       <CreateTodoButton />
-    </React.Fragment>
+    </>
   );
 }
 
