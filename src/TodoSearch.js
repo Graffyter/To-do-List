@@ -1,6 +1,6 @@
 function TodoSearch() {
   return (
-    <imput placeholder="Ser miserable"></imput>
+    <input placeholder="Ser miserable"/>
   )
 }
 

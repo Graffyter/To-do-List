@@ -2,6 +2,7 @@
   "name": "platzi-intro-react-base",
   "version": "0.1.0",
   "dependencies": {
+    "devtools": "^8.26.1",
     "nth-check": "^2.1.1",
     "postcss": "^8.4.32",
     "react": "^18",
