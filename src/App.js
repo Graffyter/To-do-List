@@ -15,19 +15,20 @@ const completedTodos = defaultTodos.filter(todo =>todo.completed === true)
 function App() {
   return (
     <>
-      <TodoCounter completed={completedTodos.length} total={defaultTodos.length} />
-      <TodoSearch />
-      <TodoList>
-        {defaultTodos.map((todo) => (
-          <TodoItem 
-            key={todo.text} 
-            text={todo.text}
-            completed={todo.completed}
-          />
-        ))}
-      </TodoList>
-
       <CreateTodoButton />
+      <div>
+        <TodoCounter completed={completedTodos.length} total={defaultTodos.length} />
+        <TodoSearch />
+        <TodoList>
+          {defaultTodos.map((todo) => (
+            <TodoItem 
+              key={todo.text} 
+              text={todo.text}
+              completed={todo.completed}
+            />
+          ))}
+        </TodoList>
+      </div>
     </>
   );
 }

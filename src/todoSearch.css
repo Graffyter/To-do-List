@@ -1,0 +1,10 @@
+input{
+    width: 500px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+input::placeholder {
+    text-align: center;
+  }

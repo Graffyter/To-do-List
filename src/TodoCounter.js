@@ -1,5 +1,3 @@
-import './estilos.css'
-
 function TodoCounter({ total, completed }) {
   return (
     <h1 className='title'>
