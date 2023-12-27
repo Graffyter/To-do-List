@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Jost:wght@500&display=swap');
+
+.box{
+    flex: 1;
+    text-align: center;
+}
+
+.create{
+    max-width:416px ;
+    height: 510px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    border-radius: 50px ;
+}
+

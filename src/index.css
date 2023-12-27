@@ -1,13 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Jolly+Lodger&family=Jost:wght@500&display=swap');
 
 body {
   margin: 0;
-  font-family: 'Fjalla One', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('../src/images/anime-girls-white-background-2159287-wallhere\ 1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root{
+  display: flex;
+  width: auto;
+  padding-top: 50px;
+  align-items: center;
+  justify-content: center;
 }
