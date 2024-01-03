@@ -16,6 +16,7 @@ const completedTodos = defaultTodos.filter(todo =>todo.completed === true)
 function App() {
   return (
     <>
+    <section className="mainContent">
       <CreateTodoButton />
       <div className="box">
         <TodoCounter completed={completedTodos.length} total={defaultTodos.length} />
@@ -30,7 +31,14 @@ function App() {
           ))}
         </TodoList>
       </div>
+      </section>
+      <footer className="pie">
+        <div className="nameApp"> 
+          <div>My Anime List</div>
+        </div>
+      </footer>
     </>
+    
   );
 }
 
