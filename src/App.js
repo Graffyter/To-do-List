@@ -5,13 +5,21 @@ import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 import './CreateTodoButton.css'
 
-const defaultTodos = [
-  { text: "Cortar cebollas", completed: true },
-  { text: "Conquistar el mundo", completed: false },
-  { text: "Patrullar en la noche", completed: false },
-  { text: "ser miserable", completed: true },
+const defaultAnimes = [
+  { text: "Death Note", totalEpisodes:36, episode:36 },
+  { text: "naruto shipuden", totalEpisodes:500, episode:300 },
+  { text: "Your Name", totalEpisodes:1, episode:0 },
+  { text: "Danganronpa", totalEpisodes:12, episode:12 },
 ];
-const completedTodos = defaultTodos.filter(todo =>todo.completed === true)
+
+const actualizadoAnimes = defaultAnimes.map(anime => ({
+  ...anime,
+  completed: anime.totalEpisodes - anime.episode === 0,
+}));
+
+console.log(actualizadoAnimes);
+
+const completedAnimes = actualizadoAnimes.filter(todo =>todo.completed === true)
 
 function App() {
   return (
@@ -19,10 +27,10 @@ function App() {
     <section className="mainContent">
       <CreateTodoButton />
       <div className="box">
-        <TodoCounter completed={completedTodos.length} total={defaultTodos.length} />
+        <TodoCounter completed={completedAnimes.length} total={defaultAnimes.length} />
         <TodoSearch />
         <TodoList>
-          {defaultTodos.map((todo) => (
+          {defaultAnimes.map((todo) => (
             <TodoItem 
               key={todo.text} 
               text={todo.text}
