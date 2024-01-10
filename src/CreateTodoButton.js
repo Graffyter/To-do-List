@@ -28,7 +28,13 @@ function CreateTodoButton({text}) {
       </label>
 
       <input id='Episodes' className='text' style={tachado2} placeholder='Number of Episodes' disabled={inputDeshabilitado} ></input>   
-      <button className='pad'>Add</button>
+      <button className='pad' 
+      onClick={
+        (event) => {
+          console.log('añadiste un nuevo anime');
+          console.log(event);
+          console.log(event.target);
+        } }>Add</button>
     </article>
     
   )

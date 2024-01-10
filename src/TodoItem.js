@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 
 
-function TodoItem({text}) {
+function TodoItem({text, episodes}) {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = () => {
@@ -11,19 +11,17 @@ function TodoItem({text}) {
   };
   
   const tachado ={
-     textDecoration: isChecked ? 'line-through' : 'none',
-     color: isChecked ? 'gray' : 'black',
+     color: isChecked ? 'green' : 'gray',
   };
 
     return (
       <li className='item'>
+        <img width="25" height="25" src="https://img.icons8.com/ios-filled/25/000000/menu--v6.png" alt="menu--v6"/>
+        <p className='frase' style={tachado}>{text}</p>
+        <p className='frase' style={tachado}>/{episodes}</p>
         <div className='check'>
             <input type="checkbox"  checked ={isChecked} onChange={handleCheckboxChange}/> 
         </div>
-        <p className='frace' style={tachado}>{text}</p>
-        <span className='delete'>
-        <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/000000/waste.png" alt="waste"/>
-        </span>
       </li>
     );
   }

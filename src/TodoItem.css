@@ -4,15 +4,30 @@ li {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    img{
+        margin-left: 10px;
+        cursor: pointer;
+    }
   }
 .item {
-    margin-top: 30px;
+    margin-top: 15px;
     display: flex;
-    border: 2px solid;
-    border-color: rgb(105, 105, 105);
-    border-radius: 35px;   
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;   
     width: 500px;
-    height: 70px;
+    height: 40px;
+    font-family: 'Jost', cursive;
+}
+
+/* ESTILOS DE LA FRACE */
+.frase{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
 }
 
 /* ESTILOS DEL CHECK MARK */
@@ -20,41 +35,19 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70px;
-    width: 100px;
-}
-  
-.check input{
-    appearance: none;
-    cursor: pointer;
-    width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background-color: rgb(194, 194, 194);
-    border: 1px solid rgb(128, 128, 128);
-}
-.check input:checked {
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
-    
-}
-/* ESTILOS DE LA FRACE TODO */
-.frace{
-    width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-/* ESTILOS DEL BOTON DELETE */
-.delete{
-    display: flex;
-    position: relative;
-    border-radius: 50%;
-    background-color: gray;
     width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    top: 15px;
-    right: -75px;
-    cursor: pointer;
+
+    input{
+        appearance: none;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        background-color: rgb(194, 194, 194);
+        border: 1px solid rgb(128, 128, 128);
+    }
+    input:checked {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e"); 
+    }
 }

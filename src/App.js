@@ -27,16 +27,19 @@ function App() {
     <section className="mainContent">
       <CreateTodoButton />
       <div className="box">
-        <TodoCounter completed={completedAnimes.length} total={defaultAnimes.length} />
+        <TodoCounter completed={completedAnimes.length} total={defaultAnimes.length}/>
         <TodoSearch />
         <TodoList>
-          {defaultAnimes.map((todo) => (
-            <TodoItem 
-              key={todo.text} 
-              text={todo.text}
-              completed={todo.completed}
-            />
-          ))}
+          {defaultAnimes.map((animes) => {
+            console.log(animes);
+            return(
+              <TodoItem 
+              key={animes.text} 
+              text={animes.text}
+              episodes={animes.totalEpisodes}
+              />
+            )          
+            })}
         </TodoList>
       </div>
       </section>
