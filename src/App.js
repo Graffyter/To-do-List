@@ -37,6 +37,7 @@ function App() {
               key={animes.text} 
               text={animes.text}
               episodes={animes.totalEpisodes}
+              episode={animes.episode}
               />
             )          
             })}

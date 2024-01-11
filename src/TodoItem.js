@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 
 
 
-function TodoItem({text, episodes}) {
+function TodoItem({text, episodes, episode}) {
   const [isChecked, setIsChecked] = useState(false);
+  
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -18,7 +19,11 @@ function TodoItem({text, episodes}) {
       <li className='item'>
         <img width="25" height="25" src="https://img.icons8.com/ios-filled/25/000000/menu--v6.png" alt="menu--v6"/>
         <p className='frase' style={tachado}>{text}</p>
-        <p className='frase' style={tachado}>/{episodes}</p>
+        <div className='episodes'>
+          <button id='addEpisode' onClick={(event) =>{
+          }}>+</button>
+          <p className='frase2' style={tachado}>{episode}/{episodes}</p>
+        </div>
         <div className='check'>
             <input type="checkbox"  checked ={isChecked} onChange={handleCheckboxChange}/> 
         </div>
