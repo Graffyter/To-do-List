@@ -1,3 +1,4 @@
+import React from "react";
 import { TodoCounter } from "./TodoCounter";
 import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
@@ -17,21 +18,25 @@ const actualizadoAnimes = defaultAnimes.map(anime => ({
   completed: anime.totalEpisodes - anime.episode === 0,
 }));
 
-console.log(actualizadoAnimes);
 
 const completedAnimes = actualizadoAnimes.filter(todo =>todo.completed === true)
 
 function App() {
+  const[searchValue, setSearchValue] = React.useState('');
+  console.log('estas buscando '+ searchValue);
+
   return (
     <>
     <section className="mainContent">
       <CreateTodoButton />
       <div className="box">
         <TodoCounter completed={completedAnimes.length} total={defaultAnimes.length}/>
-        <TodoSearch />
+        <TodoSearch 
+        searchValue = {searchValue}
+        setSearchValue = {setSearchValue}
+        />
         <TodoList>
           {defaultAnimes.map((animes) => {
-            console.log(animes);
             return(
               <TodoItem 
               key={animes.text} 

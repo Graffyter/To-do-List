@@ -1,15 +1,17 @@
-import './todoSearch.css'
+import React from 'react';
+import './todoSearch.css';
 
-function TodoSearch() {
+function TodoSearch({searchValue, setSearchValue}) {
+  
+
   return (
     <label>
       <input 
       className='search' 
       placeholder="Anime Name"
+      value={searchValue}
       onChange={(event) =>{
-        console.log('escribiste en el todoSearch');
-        console.log(event);
-        console.log(event.target.value);
+        setSearchValue(event.target.value);
       }}
       />
     </label>
