@@ -8,12 +8,12 @@ import './CreateTodoButton.css'
 
 
 const defaultAnimes = [
-  { text: "Death Note", totalEpisodes:36, episode:36 },
-  { text: "naruto shipuden", totalEpisodes:500, episode:300 },
+  { text: "Death Note", totalEpisodes:36, episode:30,},
+  { text: "naruto shipuden", totalEpisodes:500, episode:500 },
   { text: "Your Name", totalEpisodes:1, episode:0 },
-  { text: "Danganronpa", totalEpisodes:12, episode:10 },
+  { text: "Danganronpa", totalEpisodes:12, episode:12 },
+  { text: "High School of the Dead", totalEpisodes:12, episode:8 },
 ];
-console.log(defaultAnimes);
 
 const actualizadoAnimes = defaultAnimes.map(anime => ({
   ...anime,
@@ -21,11 +21,20 @@ const actualizadoAnimes = defaultAnimes.map(anime => ({
 }));
 
 
-const completedAnimes = actualizadoAnimes.filter(todo =>todo.completed === true)
-
 function App() {
+  const [anime, setAnime] = React.useState(actualizadoAnimes);
   const[searchValue, setSearchValue] = React.useState('');
-  console.log('estas buscando '+ searchValue);
+
+  const completedAnimes = anime.filter(anime => 
+    anime.completed === true)
+
+  const searchedAnimes = defaultAnimes.filter(
+    (animes) => {
+      const animesText = animes.text.toLocaleLowerCase();
+      const searchText = searchValue.toLocaleLowerCase();
+      return animesText.includes(searchText);
+    }
+    )
 
   return (
     <>
@@ -38,7 +47,7 @@ function App() {
         setSearchValue = {setSearchValue}
         />
         <TodoList>
-          {defaultAnimes.map((animes) => {
+          {searchedAnimes.map((animes) => {
             return(
               <TodoItem 
               key={animes.text} 

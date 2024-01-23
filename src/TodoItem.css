@@ -37,9 +37,29 @@ li {
     }
 }
 
+.menu{
+    visibility: hidden;
+    height: 40px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    background-color: rgba(237, 172, 100, 0.8);
+    left: -112px;
+    border-radius: 20px;
+    .icon{
+        background-color: white;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+
 /* ESTILOS DE LA FRACE */
 .frase{
-    width: 300px;
+    width: 240px;
     display: flex;
     align-items: center;
     justify-content: center;
