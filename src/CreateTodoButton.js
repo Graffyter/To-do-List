@@ -17,7 +17,11 @@ function CreateTodoButton({text}) {
   return (
     <article className="create">
       <h1>New Anime</h1>
-      <input className='text' placeholder='Anime name' />
+      <div className='inputGroup'>
+        <input className='text' required type='text' id='animeName'/>
+        <label className='label' for='animeName'>Anime Name</label>
+      </div>
+      
       <div>In broadcast</div>
 
     {/* checkbox para saber si el Anime esta en emision o no */}
@@ -26,8 +30,11 @@ function CreateTodoButton({text}) {
           checked={inputDeshabilitado}/>
         <span className='slider'></span>
       </label>
-
-      <input id='Episodes' className='text' style={tachado2} placeholder='Number of Episodes' disabled={inputDeshabilitado} ></input>   
+<div className='inputGroup'>
+<input id='Episodes' className='text' style={tachado2} disabled={inputDeshabilitado} ></input> 
+<label className='label' for='animeName'>Number of Episodes</label>
+</div>
+        
       <button className='pad' 
       onClick={
         (event) => {
