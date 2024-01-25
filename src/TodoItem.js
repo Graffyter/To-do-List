@@ -7,7 +7,8 @@ function TodoItem({text, episodes, episode}) {
   const [isChecked, setIsChecked] = useState(false);
   const [currentEpisode, setCurrentEpisode] =useState(episode);
   const [desplegado, setDesplegado] = useState({});
-  const [isNone, setIsNone] = useState(false)
+  const [isNone, setIsNone] = useState(false);
+  const [activado, setActivado] = useState(false);
   
 
   const handleCheckboxChange = () => {
@@ -25,7 +26,8 @@ function TodoItem({text, episodes, episode}) {
     setIsNone(!isNone);
     setDesplegado({
       visibility: isNone ? 'hidden':'visible',
-    })
+    });
+    setActivado(!activado);
   }
   
   const tachado ={
@@ -33,13 +35,17 @@ function TodoItem({text, episodes, episode}) {
   };
     return (
       <li className='item'>
-        <img width="25" height="25" src="https://img.icons8.com/ios-filled/25/000000/menu--v6.png" alt="menu--v6" onClick={desplegar}/>
+        <button className={`buttonMenu ${activado ? 'activado': ''}`} onClick={desplegar}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </button>
+        
         <div className='menu' style={desplegado}>
           <div className='edit icon'>
-  
+            <img alt='edit' src='./src/images/lapiz.png'></img>
           </div>
-          <div className='erace icon'>
-
+          <div className='delete icon'>
           </div>
         </div>
         <p className='frase' style={tachado}>{text}</p>

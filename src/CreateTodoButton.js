@@ -1,8 +1,7 @@
-import './CreateTodoButton.css'
-import React, { useState } from 'react';
+import "./CreateTodoButton.css";
+import React, { useState } from "react";
 
-
-function CreateTodoButton({text}) {
+function CreateTodoButton({ text }) {
   const [inputDeshabilitado, setInputDeshabilitado] = useState(false);
 
   const manejarCheckboxChange = () => {
@@ -10,41 +9,56 @@ function CreateTodoButton({text}) {
     setInputDeshabilitado(!inputDeshabilitado);
   };
 
-  const tachado2 ={
-    textDecoration: inputDeshabilitado ? 'line-through' : 'none',
- };
- 
+  const tachado2 = {
+    textDecoration: inputDeshabilitado ? "line-through" : "none",
+  };
+
   return (
     <article className="create">
       <h1>New Anime</h1>
-      <div className='inputGroup'>
-        <input className='text' required type='text' id='animeName'/>
-        <label className='label' for='animeName'>Anime Name</label>
+      <div className="inputGroup">
+        <input className="text" required type="text" id="animeName" />
+        <label className="label" htmlFor="animeName">
+          Anime Name
+        </label>
       </div>
-      
+
       <div>In broadcast</div>
 
-    {/* checkbox para saber si el Anime esta en emision o no */}
-      <label className='switch'>
-        <input id='Cast' type='checkbox' onChange={manejarCheckboxChange}
-          checked={inputDeshabilitado}/>
-        <span className='slider'></span>
+      {/* checkbox para saber si el Anime esta en emision o no */}
+      <label className="switch">
+        <input
+          id="Cast"
+          type="checkbox"
+          onChange={manejarCheckboxChange}
+          checked={inputDeshabilitado}
+        />
+        <span className="slider"></span>
       </label>
-<div className='inputGroup'>
-<input id='Episodes' className='text' style={tachado2} disabled={inputDeshabilitado} ></input> 
-<label className='label' for='animeName'>Number of Episodes</label>
-</div>
-        
-      <button className='pad' 
-      onClick={
-        (event) => {
-          console.log('añadiste un nuevo anime');
+      <div className="inputGroup">
+        <input
+          id="Episodes"
+          className="text"
+          required
+          disabled={inputDeshabilitado}
+        ></input>
+        <label className="label" htmlFor="animeName" style={tachado2}>
+          Number of Episodes
+        </label>
+      </div>
+
+      <button
+        className="pad"
+        onClick={(event) => {
+          console.log("añadiste un nuevo anime");
           console.log(event);
           console.log(event.target);
-        } }>Add</button>
+        }}
+      >
+        Add
+      </button>
     </article>
-    
-  )
+  );
 }
 
-export {CreateTodoButton};
+export { CreateTodoButton };
