@@ -4,10 +4,6 @@ li {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    img{
-        margin-left: 10px;
-        cursor: pointer;
-    }
   }
 .item {
     margin-top: 15px;
@@ -83,13 +79,16 @@ li {
     justify-content: space-around;
     position: absolute;
     background-color: white;
-    left: 100px;
+    left: 90px;
     border-radius: 10px;
     .icon{
         height: 30px;
         width: 30px;
         border-radius: 10px;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 

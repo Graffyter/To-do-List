@@ -1,5 +1,7 @@
 import './TodoItem.css'
 import React, { useState } from 'react';
+import editIcon from './images/editar.png';
+import deleteIcon from './images/basura2.png';
 
 
 
@@ -43,9 +45,10 @@ function TodoItem({text, episodes, episode}) {
         
         <div className='menu' style={desplegado}>
           <div className='edit icon'>
-            <img alt='edit' src='./src/images/lapiz.png'></img>
+            <img alt='edit' src={editIcon}></img>
           </div>
           <div className='delete icon'>
+            <img alt='delete' src={deleteIcon}></img>
           </div>
         </div>
         <p className='frase' style={tachado}>{text}</p>
