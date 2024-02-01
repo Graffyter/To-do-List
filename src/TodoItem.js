@@ -5,9 +5,9 @@ import deleteIcon from './images/basura2.png';
 
 
 
-function TodoItem({text, episodes, episode}) {
+function TodoItem(props) {
   const [isChecked, setIsChecked] = useState(false);
-  const [currentEpisode, setCurrentEpisode] =useState(episode);
+  const [currentEpisode, setCurrentEpisode] =useState(props.episode);
   const [desplegado, setDesplegado] = useState({});
   const [isNone, setIsNone] = useState(false);
   const [activado, setActivado] = useState(false);
@@ -15,13 +15,20 @@ function TodoItem({text, episodes, episode}) {
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
+    if(isChecked === false){
+      props.onComplete && props.onComplete();
+    }else if(isChecked === true){
+      props.onUncomplete && props.onUncomplete();
+    }
   };
   const handleAddEpisodeClick =() =>{
-    if(currentEpisode < episodes){
+
+    if(currentEpisode < props.episodes){
       setCurrentEpisode(prevEpisode => prevEpisode + 1)
-      if(currentEpisode + 1 ===episodes){
+      if(currentEpisode + 1 ===props.episodes){
         setIsChecked(true)
-      }      
+      }
+            
     }
   }
   const desplegar =()=>{
@@ -51,10 +58,10 @@ function TodoItem({text, episodes, episode}) {
             <img alt='delete' src={deleteIcon}></img>
           </div>
         </div>
-        <p className='frase' style={tachado}>{text}</p>
+        <p className='frase' style={tachado}>{props.text}</p>
         <div className='episodes'>
           <button id='addEpisode' onClick={handleAddEpisodeClick}>+</button>
-          <p className='frase2' style={tachado}>{currentEpisode}/{episodes}</p>
+          <p className='frase2' style={tachado}>{currentEpisode}/{props.episodes}</p>
         </div>
         <div className='check'>
             <input type="checkbox"  checked ={isChecked} onChange={handleCheckboxChange}/> 
