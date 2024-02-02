@@ -4,33 +4,39 @@ import editIcon from './images/editar.png';
 import deleteIcon from './images/basura2.png';
 
 
-
-function TodoItem(props) {
-  const [isChecked, setIsChecked] = useState(false);
+function TodoItem(props) { 
   const [currentEpisode, setCurrentEpisode] =useState(props.episode);
+  const [isChecked, setIsChecked] = useState(false);
   const [desplegado, setDesplegado] = useState({});
   const [isNone, setIsNone] = useState(false);
   const [activado, setActivado] = useState(false);
-  
+
+React.useEffect(()=>{
+  if(isChecked === false){
+    props.onUncomplete && props.onUncomplete();
+  }else if(isChecked === true){
+    props.onComplete && props.onComplete();
+  }
+},[isChecked])
 
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-    if(isChecked === false){
-      props.onComplete && props.onComplete();
-    }else if(isChecked === true){
-      props.onUncomplete && props.onUncomplete();
-    }
+    setIsChecked(!isChecked); 
   };
   const handleAddEpisodeClick =() =>{
 
     if(currentEpisode < props.episodes){
-      setCurrentEpisode(prevEpisode => prevEpisode + 1)
-      if(currentEpisode + 1 ===props.episodes){
-        setIsChecked(true)
-      }
-            
+      setCurrentEpisode(prevEpisode => prevEpisode + 1)     
     }
   }
+
+  React.useEffect( () => {
+    if(currentEpisode  === props.episodes){
+      setIsChecked(true);
+    }
+  },[currentEpisode]
+  )
+
+
   const desplegar =()=>{
     setIsNone(!isNone);
     setDesplegado({
@@ -54,7 +60,7 @@ function TodoItem(props) {
           <div className='edit icon'>
             <img alt='edit' src={editIcon}></img>
           </div>
-          <div className='delete icon'>
+          <div className='delete icon' onClick={props.onDelete}>
             <img alt='delete' src={deleteIcon}></img>
           </div>
         </div>

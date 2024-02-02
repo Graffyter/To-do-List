@@ -8,10 +8,10 @@ import './CreateTodoButton.css'
 
 
 const defaultAnimes = [
-  { text: "Death Note", totalEpisodes:36, episode:30, completed:false},
-  { text: "naruto shipuden", totalEpisodes:499, episode:500, completed:false },
+  { text: "Death Note", totalEpisodes:36, episode:35, completed:false},
+  { text: "naruto shipuden", totalEpisodes:500, episode:499, completed:false },
   { text: "Your Name", totalEpisodes:1, episode:0, completed:false },
-  { text: "Danganronpa", totalEpisodes:11, episode:12, completed:false },
+  { text: "Danganronpa", totalEpisodes:12, episode:11, completed:false },
   { text: "High School of the Dead", totalEpisodes:12, episode:8, completed:false },
 ];
 
@@ -19,12 +19,12 @@ function App() {
   const [anime, setAnime] = React.useState(defaultAnimes);
   const[searchValue, setSearchValue] = React.useState('');
 
-  const completedAnimes = anime.filter(anime => 
-    anime.completed === true)
+  const completedAnimes = anime.filter(animex => 
+    animex.completed === true)
 
-  const searchedAnimes = defaultAnimes.filter(
-    (animes) => {
-      const animesText = animes.text.toLocaleLowerCase();
+  const searchedAnimes = anime.filter(
+    (animex) => {
+      const animesText = animex.text.toLocaleLowerCase();
       const searchText = searchValue.toLocaleLowerCase();
       return animesText.includes(searchText);
     }
@@ -43,16 +43,25 @@ function App() {
       const animeIndex = newAnimes.findIndex(
         (anime) => anime.text == text
       )
-      newAnimes[animeIndex].completed = true;
+      newAnimes[animeIndex].completed = false;
       setAnime(newAnimes)
     }
 
+    const deleteAnime = (text)=>{
+      const newAnimes = [...anime];
+      const animeIndex = newAnimes.findIndex(
+        (anime) => anime.text == text
+      );
+      newAnimes.splice(animeIndex, 1)
+      setAnime(newAnimes)
+    }
+console.log(anime);
   return (
     <>
     <section className="mainContent">
       <CreateTodoButton />
       <div className="box">
-        <TodoCounter completed={completedAnimes.length} total={defaultAnimes.length}/>
+        <TodoCounter completed={completedAnimes.length} total={anime.length}/>
         <TodoSearch 
         searchValue = {searchValue}
         setSearchValue = {setSearchValue}
@@ -67,6 +76,7 @@ function App() {
               episode={animes.episode}
               onComplete={() => CompleteAnime(animes.text)}
               onUncomplete={() => UncompleteAnime(animes.text)}
+              onDelete={()=> deleteAnime(animes.text)}
               />
             )          
             })}
