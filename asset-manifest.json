@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/To-do-List/static/css/main.e061b3a2.css",
+    "main.js": "/To-do-List/static/js/main.599ebd0d.js",
+    "static/media/anime-girls-white-background-2159287-wallhere 1.png": "/To-do-List/static/media/anime-girls-white-background-2159287-wallhere 1.8ed5c251203f0cdcd2e9.png",
+    "index.html": "/To-do-List/index.html",
+    "main.e061b3a2.css.map": "/To-do-List/static/css/main.e061b3a2.css.map",
+    "main.599ebd0d.js.map": "/To-do-List/static/js/main.599ebd0d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e061b3a2.css",
+    "static/js/main.599ebd0d.js"
+  ]
+}
